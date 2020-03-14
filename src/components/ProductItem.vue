@@ -1,9 +1,9 @@
 <template>
     <div>
-        <h3>{{product.name}}</h3>
-        <img v-bind:src="product.urlImage" />
-        <h4>R$ {{product.price}}</h4>
-        <h5>{{product.description}}</h5>
+        <p class="title">{{product.name}}</p>
+        <img class="image" v-bind:src="product.urlImage" />
+        <p class="price">R$ {{product.price}}</p>
+        <p class="desc">{{product.description}}</p>
     </div>
 </template>
 
@@ -48,3 +48,23 @@ export default {
     }*/
 };
 </script>
+
+<style scoped>
+.title{
+    font-size: 26px;
+    font-weight: bold;
+}
+.image {
+    height: 250px;
+    width: 220px;
+    float: left;
+}
+.price{
+    font-size: 20px;
+    font-weight: bold;
+}
+.desc{
+    text-align: justify;
+    text-justify: inter-word;
+}
+</style>

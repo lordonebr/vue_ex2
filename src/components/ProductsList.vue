@@ -1,6 +1,7 @@
 <template>
     <div>
-        <ProductItem v-for="item in products" v-bind:key="item" v-bind:product="item" />
+        <h1 class="title">Lista de Produtos</h1>
+        <ProductItem class="product" v-for="item in products" :key="item" :product="item" />
     </div>
 </template>
 
@@ -17,3 +18,19 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.title{
+    border-top: double;
+    border-bottom: double;
+    padding: 3px 5px;
+    background: green;
+    color: white;
+}
+.product{
+    float: left;
+    border-bottom: double;
+    margin-bottom: 5px;
+    padding-bottom: 15px;
+}
+</style>
