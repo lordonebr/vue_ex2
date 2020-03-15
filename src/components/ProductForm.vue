@@ -3,6 +3,7 @@
       <h1 class="title">Adicione um novo produto</h1>
       <form @submit="onFormSubmit">
         <div>
+          <label class="errorNameProduct" v-if="isNameLimitExceeded">Atenção: O nome do produto não pode ultrapassar 15 caracteres</label>
           <div class="column">
             <label>Nome</label>
             <input class="inputName" type="text" v-model="name">
@@ -31,11 +32,31 @@
 export default {
     name: 'ProductForm',
     props: {
-        funcReturn: Function
+        funcReturn: Function,
+        name: String,
+        price: String,
+        urlImage: String,
+        description: String
+    },
+    data() {
+      return {
+        isNameLimitExceeded: false
+      }
+    },
+    watch: {
+      name: function(val){
+        if(val.length > 15)
+          this.isNameLimitExceeded = true;
+        else
+          this.isNameLimitExceeded = false;
+      }
     },
     methods: {
     onFormSubmit(e) {
       e.preventDefault();
+
+      if(this.isNameLimitExceeded)
+        return;
 
       this.funcReturn({
         'name': this.name,
@@ -84,6 +105,12 @@ export default {
   margin: 15px 0px 30px 0px;
   padding: 5px;
   font-weight: bold;
+}
+.errorNameProduct{
+  color: white;
+  background: red;
+  margin: 0px 0px 10px 0px;
+  padding: 2px;
 }
 
 label{

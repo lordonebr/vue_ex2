@@ -30,6 +30,7 @@ export default {
 }
 .product{
     float: left;
+    clear:both;
     border-bottom: double;
     margin-bottom: 5px;
     padding-bottom: 15px;
