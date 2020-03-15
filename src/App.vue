@@ -1,7 +1,7 @@
 <template>
   <div>
       <ProductForm :funcReturn="onFormSubmit" />
-      <ProductsList :products="products" />
+      <ProductsList :products="products" :quant="qtItens" />
   </div>
 </template>
 
@@ -14,6 +14,14 @@ export default {
   components: {
     ProductsList,
     ProductForm
+  },
+  computed: {
+    qtItens: {
+      //getter
+      get: function() {
+        return this.products.length;
+      }
+    }
   },
   methods: {
     onFormSubmit(product) {

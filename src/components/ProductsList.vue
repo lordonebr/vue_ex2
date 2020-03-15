@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="title">Lista de Produtos</h1>
+        <h1 class="title">Lista de Produtos (Quantidade: {{quant}})</h1>
         <ProductItem class="product" v-for="item in products" :key="item" :product="item" />
     </div>
 </template>
@@ -14,7 +14,8 @@ export default {
       ProductItem
     },
     props: {
-        products: Array
+        products: Array,
+        quant: String
     }
 }
 </script>
